@@ -10,7 +10,7 @@ pipeline {
             steps {
                 cleanWs()
                 echo 'Clonando el repositorio...'
-                git 'https://github.com/ActraStride/reactTest' // URL de tu repositorio
+                git branch: 'main', url: 'https://github.com/ActraStride/reactTest' // Asegurando que se use la rama correcta
             }
         }
 
