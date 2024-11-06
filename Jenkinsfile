@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Clonando el repositorio...'
-                git 'https://github.com/ActraStride/reactTest' // URL de tu repositorio
+                git 'https://github.com/ActraStride/reactTest.git' // URL de tu repositorio
             }
         }
 
