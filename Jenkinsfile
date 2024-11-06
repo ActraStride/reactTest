@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                cleanWs()
                 echo 'Clonando el repositorio...'
                 git 'https://github.com/ActraStride/reactTest' // URL de tu repositorio
             }
