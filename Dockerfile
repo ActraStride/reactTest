@@ -12,7 +12,7 @@ RUN npm cache clean --force
 
 
 # 4. Instala las dependencias
-RUN npm ci --verbose
+RUN npm install --verbose
 
 # 5. Copia el resto de la aplicación al contenedor
 COPY . .
