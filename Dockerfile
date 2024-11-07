@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 4. Instala las dependencias
-RUN npm ci
+RUN npm ci --verbose
 
 # 5. Copia el resto de la aplicación al contenedor
 COPY . .
