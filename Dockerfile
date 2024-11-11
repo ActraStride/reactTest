@@ -25,14 +25,8 @@ FROM nginx:alpine
 # 8. Copia los archivos generados por Vite al directorio de Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# 9. Copia los certificados SSL al contenedor
-COPY ./certs /etc/nginx/certs
-
-# 10. Configura Nginx para usar SSL
-COPY nginx.conf /etc/nginx/nginx.conf
-
 # 11. Expone los puertos 80 y 443
-EXPOSE 80 443
+EXPOSE 80
 
 # 12. Inicia el servidor Nginx
 CMD ["nginx", "-g", "daemon off;"]
