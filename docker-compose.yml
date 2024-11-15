@@ -31,7 +31,7 @@ services:
   www:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     expose:
       - "80"
     environment:
