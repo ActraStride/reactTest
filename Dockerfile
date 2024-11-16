@@ -7,14 +7,26 @@ WORKDIR /app
 # 3. Copia el archivo package.json y package-lock.json
 COPY package*.json ./
 
-# 4. Limpia la caché de npm
+# 3.5 CLEAN
 RUN npm cache clean --force
 
-# 5. Instala las dependencias
+# 4. Instala las dependencias
 RUN npm install --verbose
 
-# 6. Copia el resto de la aplicación al contenedor
+# 5. Copia el resto de la aplicación al contenedor
 COPY . .
 
-# 7. Construye la aplicación para producción
+# 6. Construye la aplicación para producción
 RUN npm run build
+
+# 7. Usa una imagen ligera de Nginx para servir el contenido estático
+FROM nginx:alpine
+
+# 8. Copia los archivos generados por Vite al directorio de Nginx
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# 11. Expone los puertos 80 y 443
+EXPOSE 9000
+
+# 12. Inicia el servidor Nginx
+CMD ["nginx", "-g", "daemon off;"]
