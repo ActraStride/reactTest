@@ -18,15 +18,3 @@ COPY . .
 
 # 6. Construye la aplicación para producción
 RUN npm run build
-
-# 7. Usa una imagen ligera de Nginx para servir el contenido estático
-FROM nginx:alpine
-
-# 8. Copia los archivos generados por Vite al directorio de Nginx
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# 11. Expone los puertos 80 y 443
-EXPOSE 80
-
-# 12. Inicia el servidor Nginx
-CMD ["nginx", "-g", "daemon off;"]
