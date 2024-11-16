@@ -6,4 +6,4 @@ services:
     container_name: node_app
     volumes:
       - .:/app
-    working_dir: /app
+    working_dir: /app..
