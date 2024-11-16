@@ -7,14 +7,14 @@ WORKDIR /app
 # 3. Copia el archivo package.json y package-lock.json
 COPY package*.json ./
 
-# 3.5 CLEAN
+# 4. Limpia la caché de npm
 RUN npm cache clean --force
 
-# 4. Instala las dependencias
+# 5. Instala las dependencias
 RUN npm install --verbose
 
-# 5. Copia el resto de la aplicación al contenedor
+# 6. Copia el resto de la aplicación al contenedor
 COPY . .
 
-# 6. Construye la aplicación para producción
+# 7. Construye la aplicación para producción
 RUN npm run build
