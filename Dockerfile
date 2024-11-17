@@ -25,8 +25,5 @@ FROM nginx:alpine
 # 8. Copia los archivos generados por Vite al directorio de Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# 11. Expone los puertos 80 y 443
-EXPOSE 9000
-
 # 12. Inicia el servidor Nginx
 CMD ["nginx", "-g", "daemon off;"]
