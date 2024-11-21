@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <p>Actra fuera de servicio</p>
+      <h1>Actra fuera de servicio.</h1> 
     </>
   )
 }
